@@ -16,7 +16,7 @@ dependencies:
 
 test:
   override:
-    - docker run --entrypoint /bin/ls gorocks -l /usr/local/lib
+    - docker run --entrypoint /bin/ls $GO_V -l /usr/local/lib
 
 deployment:
   production:
@@ -34,3 +34,4 @@ deployment:
         latest=$GO_V:latest
         echo "Tagging $latest as $CONTAINER_NAME:latest"
         docker tag $latest $CONTAINER_NAME:latest
+        docker push $CONTAINER_NAME

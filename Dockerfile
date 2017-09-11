@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y libgflags-dev libsnappy-dev liblz4-dev libbz2-dev zlib1g-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-ARG ROCKSDB_VERSION 5.7.3
+ARG ROCKSDB_VERSION=5.7.3
 
 RUN cd /tmp && \
   wget https://github.com/facebook/rocksdb/archive/v${ROCKSDB_VERSION}.tar.gz && \

@@ -9,7 +9,7 @@ ARG ROCKSDB_VERSION=5.7.3
 
 ENV ROCKSDB_PATH /usr/lib/rocksdb-${ROCKSDB_VERSION}
 ENV CGO_CFLAGS="-I${ROCKSDB_PATH}/include"
-ENV CGO_LDFLAGS="-L${ROCKSDB} -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy"
+ENV CGO_LDFLAGS="-L${ROCKSDB_PATH} -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy"
 
 RUN cd /tmp && \
   wget https://github.com/facebook/rocksdb/archive/v${ROCKSDB_VERSION}.tar.gz && \

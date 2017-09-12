@@ -16,7 +16,8 @@ dependencies:
 
 test:
   override:
-    - docker run --entrypoint /bin/ls $GO_V -l /usr/local/lib
+    - docker run $GO_V -c "ls -l /usr/local/lib"
+    - docker run $GO_V -c "go get github.com/tecbot/gorocksdb"
 
 deployment:
   production:

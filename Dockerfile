@@ -16,6 +16,7 @@ RUN cd /tmp && \
   tar -xzf v${ROCKSDB_VERSION}.tar.gz -C /usr/lib && \
   cd $ROCKSDB_PATH && \
   make static_lib && make install && \
-  rm -rf /tmp/*
+  strip --strip-debug /usr/local/lib/librocksdb.a && \
+  rm -rf /tmp/* $ROCKSDB_PATH/librocksdb.a
 
 ENTRYPOINT ["/bin/bash"]

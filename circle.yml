@@ -26,9 +26,6 @@ deployment:
       - docker login -e $QUAY_EMAIL -u $QUAY_USER -p $QUAY_PASS quay.io
       - |
         set -e
-        echo "Tagging as $CONTAINER_NAME:v$ROCKSDB_V"
-        docker tag -f $GO_V:latest $CONTAINER_NAME:v$ROCKSDB_V
-        latest=$GO_V:latest
-        echo "Tagging $latest as $CONTAINER_NAME:latest"
-        docker tag $latest $CONTAINER_NAME:latest
+        echo "Tagging as $CONTAINER_NAME:v$ROCKSDB_V-tooling"
+        docker tag -f $GO_V:latest $CONTAINER_NAME:v$ROCKSDB_V-tooling
         docker push $CONTAINER_NAME

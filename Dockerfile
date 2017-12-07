@@ -15,7 +15,7 @@ RUN cd /tmp && \
   wget https://github.com/facebook/rocksdb/archive/v${ROCKSDB_VERSION}.tar.gz && \
   tar -xzf v${ROCKSDB_VERSION}.tar.gz -C /usr/lib && \
   cd $ROCKSDB_PATH && \
-  make static_lib && make sst_dump && make tools_lib && make install && \
+  make static_lib && make install && \
   strip --strip-debug /usr/local/lib/librocksdb.a && \
   rm -rf /tmp/* $ROCKSDB_PATH/librocksdb.a
 

@@ -1,11 +1,11 @@
-FROM quay.io/redsift/sandbox-go:v1.9.4
+FROM quay.io/redsift/sandbox-go:v1.10
 MAINTAINER Christos Vontas email: christos@redsift.io version: 1.1.0
 
 RUN apt-get update && \
     apt-get install -y libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev libzstd-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-ARG ROCKSDB_VERSION=5.8
+ARG ROCKSDB_VERSION=5.17.2
 
 ENV ROCKSDB_PATH /usr/lib/rocksdb-${ROCKSDB_VERSION}
 ENV CGO_CFLAGS="-I${ROCKSDB_PATH}/include"

@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  build_default:
+    shell: /bin/bash
+    environment:
+      CONTAINER_NAME: quay.io/redsift/sandbox-go-rocksdb
+      GO_V: 1.12
+      ROCKSDB_V: 5.17.2
+    docker:
+      - image: cibuilds/docker:18.06.3-ce
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: docker login -u $QUAY_USER -p $QUAY_PASS quay.io
+      - run: ./docker_build
+
+workflows:
+  version: 2.1
+  build-and-deploy:
+    jobs:
+      - build_default

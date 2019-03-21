@@ -13,21 +13,21 @@ fi
 imageName=$CONTAINER_NAME:v$rv$SUFFIX
 
 echo "Configuring FROM in Dockerfile with suffix=${SUFFIX}"
-sed "s/FROM quay\.io\/redsift\/sandbox-go\:v1\.12/&${SUFFIX}/" < Dockerfile > Dockerfile.versioned
+sed "s/FROM quay\.io\/redsift\/sandbox-go\:v${gv}/&${SUFFIX}/" < Dockerfile > Dockerfile.versioned
 
 echo Building $imageName
 docker build --build-arg ROCKSDB_VERSION=$rv -t $imageName -f ./Dockerfile.versioned .
 
 
-MinorV=$(echo $gv | sed "s/\(.*\)\.\(.*\)\..*/\1.\2/")
+MinorV=$(echo $rv | sed "s/\(.*\)\.\(.*\)\..*/\1.\2/")
 MinorV_TAG=$CONTAINER_NAME:v$MinorV$SUFFIX
 echo "Tagging as $MinorV_TAG"
 docker tag $imageName $MinorV_TAG
 
-MAJOR_VERSION=(${gv//./ })
-MV_TAG=$CONTAINER_NAME:v$MAJOR_VERSION$SUFFIX
-echo "Tagging as $MV_TAG"
-docker tag $imageName $MV_TAG
+# MAJOR_VERSION=(${rv//./ })
+# MV_TAG=$CONTAINER_NAME:v$MAJOR_VERSION$SUFFIX
+# echo "Tagging as $MV_TAG"
+# docker tag $imageName $MV_TAG
 
 if [[ "$tagName" == "release" ]]; then
   echo "Tagging as $CONTAINER_NAME:latest"

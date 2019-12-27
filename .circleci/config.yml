@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 jobs:
   build_default:
@@ -17,7 +17,7 @@ jobs:
       - run: docker push $CONTAINER_NAME
 
 workflows:
-  version: 2
+  version: 2.1
   build-and-deploy:
     jobs:
       - build_default:

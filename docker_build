@@ -12,8 +12,9 @@ if [ $tagName == "release" ]; then
 fi
 imageName=$CONTAINER_NAME:v$rv$SUFFIX
 
-echo "Configuring FROM in Dockerfile with suffix=${SUFFIX}"
-sed "s/FROM quay\.io\/redsift\/sandbox-go\:v${gv}/&${SUFFIX}/" < Dockerfile > Dockerfile.versioned
+vt=v${gv}${SUFFIX}
+echo "Configuring FROM in Dockerfile with version=${vt}"
+sed "s~^\(FROM quay.io/redsift/sandbox-go:\).*$~\1${vt}~" < Dockerfile > Dockerfile.versioned
 
 echo Building $imageName
 docker build --build-arg ROCKSDB_VERSION=$rv -t $imageName -f ./Dockerfile.versioned .

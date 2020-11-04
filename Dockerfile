@@ -19,6 +19,6 @@ RUN cd /tmp && \
   strip --strip-debug /usr/local/lib/librocksdb.a && \
   rm -rf /tmp/* $ROCKSDB_PATH/librocksdb.a
 
-RUN curl -sSL "https://github.com/gotestyourself/gotestsum/releases/download/v0.3.1/gotestsum_0.3.1_linux_amd64.tar.gz" | tar -xz -C /usr/local/bin gotestsum 
+RUN curl -sSL "https://github.com/gotestyourself/gotestsum/releases/download/v0.6.0/gotestsum_0.6.0_linux_amd64.tar.gz" | tar -xz -C /usr/local/bin gotestsum
 
 ENTRYPOINT ["/bin/bash"]

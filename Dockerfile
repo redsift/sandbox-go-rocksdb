@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev libzstd-dev openssh-client git curl && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-ARG ROCKSDB_VERSION=5.18.3
+ARG ROCKSDB_VERSION=6.11.4
 
 ENV ROCKSDB_PATH /usr/lib/rocksdb-${ROCKSDB_VERSION}
 ENV CGO_CFLAGS="-I${ROCKSDB_PATH}/include"

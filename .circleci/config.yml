@@ -2,6 +2,7 @@ version: 2.1
 
 jobs:
   build_default:
+    resource_class: large
     shell: /bin/bash
     environment:
       CONTAINER_NAME: quay.io/redsift/sandbox-go-rocksdb

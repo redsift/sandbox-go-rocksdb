@@ -10,7 +10,7 @@ SUFFIX="-beta"
 if [ $tagName == "release" ]; then
   SUFFIX=""
 fi
-imageName=$CONTAINER_NAME:v$rv$SUFFIX
+imageName=$CONTAINER_NAME:v$rv-go${gv}$SUFFIX
 
 vt=v${gv}${SUFFIX}
 echo "Configuring FROM in Dockerfile with version=${vt}"

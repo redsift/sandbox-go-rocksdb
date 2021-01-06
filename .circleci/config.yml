@@ -6,7 +6,7 @@ jobs:
     shell: /bin/bash
     environment:
       CONTAINER_NAME: quay.io/redsift/sandbox-go-rocksdb
-      GO_V: 1.15.5
+      GO_V: 1.15.6
       ROCKSDB_V: 5.18.3
     docker:
       - image: cibuilds/docker:18.06.3-ce

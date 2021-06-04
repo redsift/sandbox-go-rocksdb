@@ -1,4 +1,4 @@
-FROM quay.io/redsift/sandbox-go:v1.16.5
+FROM quay.io/redsift/sandbox-go:v1.15.4
 MAINTAINER Christos Vontas email: christos@redsift.io version: 1.1.0
 
 RUN apt-get update && \

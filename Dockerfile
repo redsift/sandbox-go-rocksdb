@@ -1,4 +1,4 @@
-FROM quay.io/redsift/sandbox-go:v1.18
+FROM quay.io/redsift/sandbox-go:v1.18.3
 MAINTAINER Christos Vontas email: christos@redsift.io version: 1.1.0
 
 RUN apt-get update && \
@@ -20,5 +20,7 @@ RUN cd /tmp && \
   rm -rf /tmp/* $ROCKSDB_PATH/librocksdb.a
 
 RUN curl -sSL "https://github.com/gotestyourself/gotestsum/releases/download/v0.6.0/gotestsum_0.6.0_linux_amd64.tar.gz" | tar -xz -C /usr/local/bin gotestsum
+
+RUN go clean -modcache
 
 ENTRYPOINT ["/bin/bash"]

@@ -21,4 +21,6 @@ RUN cd /tmp && \
 
 RUN curl -sSL "https://github.com/gotestyourself/gotestsum/releases/download/v0.6.0/gotestsum_0.6.0_linux_amd64.tar.gz" | tar -xz -C /usr/local/bin gotestsum
 
+RUN go clean -modcache
+
 ENTRYPOINT ["/bin/bash"]

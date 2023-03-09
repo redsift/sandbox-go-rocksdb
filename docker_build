@@ -17,7 +17,7 @@ vt=v${gv}${SUFFIX}
 # sed "s~^\(FROM quay.io/redsift/sandbox-go:\).*$~\1${vt}~" < Dockerfile > Dockerfile.versioned
 
 echo Building $imageName
-docker build --build-arg ROCKSDB_VERSION=$rv -t $imageName -f ./Dockerfile.versioned .
+docker build --build-arg ROCKSDB_VERSION=$rv -t $imageName -f ./Dockerfile .
 
 
 MinorV=$(echo $rv | sed "s/\(.*\)\.\(.*\)\..*/\1.\2/")

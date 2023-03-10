@@ -39,4 +39,4 @@ echo "Testing if /usr/local/lib is populated"
 docker run $imageName -c "ls -l /usr/local/lib"
 
 echo "Testing that github.com/tecbot/gorocksdb can be installed"
-docker run $imageName -c "go install github.com/tecbot/gorocksdb"
+docker run $imageName -c "go install github.com/tecbot/gorocksdb@latest"

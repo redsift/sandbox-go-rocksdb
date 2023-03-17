@@ -2,7 +2,7 @@ FROM quay.io/redsift/sandbox-go:v1.20.2-beta
 MAINTAINER Christos Vontas email: christos@redsift.io version: 1.1.0
 
 RUN apt-get update && \
-  apt-get install -y libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev libzstd-dev openssh-client git curl && \
+  apt-get install -y libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev libzstd-dev liblz4-dev openssh-client git curl && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 ARG ROCKSDB_VERSION=7.10.2
